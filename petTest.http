@@ -1,0 +1,14 @@
+### GET request with a header
+GET http://localhost:2080/pet.v1.PetStoreService/PutPet
+Accept: application/json
+
+
+### GET request with a header
+PUT http://localhost:9085/v1/pets
+Accept: application/json
+Content-Type: application/json
+
+{
+  "pet_type": "PET_TYPE_SNAKE",
+  "name": "Ekans"
+}

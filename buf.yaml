@@ -1,0 +1,15 @@
+version: v2
+modules:
+  - path: proto
+lint:
+  use:
+    - DEFAULT
+  ignore:
+    - proto/google/type/datetime.proto
+    - proto/google/api/http.proto
+    - proto/google/api/annotations.proto
+breaking:
+  use:
+    - FILE
+deps:
+  - buf.build/googleapis/googleapis
