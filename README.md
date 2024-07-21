@@ -19,6 +19,17 @@ go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@latest
 ```
 
 ## Generate the gRPC Gateway
+Before generating the gRPC Gateway, we need to ensure that the `buf.gen.yaml` file is correctly configured.
+
+```yaml
+version: v2
+managed:
+  enabled: true
+  override:
+    - file_option: go_package_prefix
+      value: github.com/bufbuild/buf-tour/gen # This is the go module name followed by the gen directory e.g github.com/project/gen
+```
+
 
 ```bash
 cd $HOME/getting-started-with-buf-cli
@@ -27,6 +38,8 @@ cd $HOME/getting-started-with-buf-cli
 ```bash
 make generate
 ```
+
+> The first time you run make genenerate you need to add two project dependencies: `go get github.com/grpc-ecosystem/grpc-gateway/v2` and `go get google.golang.org/grpc`
 
 > We can run `buf lint` and `buf breaking` to check for linting errors and breaking changes.
 
