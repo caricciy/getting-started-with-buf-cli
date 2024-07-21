@@ -39,7 +39,7 @@ cd $HOME/getting-started-with-buf-cli
 make generate
 ```
 
-> The first time you run make genenerate you need to add two project dependencies: `go get github.com/grpc-ecosystem/grpc-gateway/v2` and `go get google.golang.org/grpc`
+> The first time you run make genenerate you need to add two project dependencies: `go get github.com/grpc-ecosystem/grpc-gateway/v2`, `go get google.golang.org/grpc` and `connectrpc.com/connect`
 
 > We can run `buf lint` and `buf breaking` to check for linting errors and breaking changes.
 
