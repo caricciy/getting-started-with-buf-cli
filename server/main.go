@@ -3,6 +3,7 @@ package main
 import (
 	"connectrpc.com/connect"
 	"context"
+	"errors"
 	"fmt"
 	petv1 "github.com/bufbuild/buf-tour/gen/pet/v1"
 	"github.com/bufbuild/buf-tour/gen/pet/v1/petv1connect"
@@ -66,6 +67,10 @@ func (s *petStoreServiceServer) PutPet(
 
 	name := req.Msg.GetName()
 	petType := req.Msg.GetPetType()
+
+	if name == "" {
+		return nil, connect.NewError(connect.CodeInvalidArgument, errors.New("invalid argument"))
+	}
 
 	fmt.Println("Received request to add pet with name: ", req.Msg.Name)
 	log.Printf("Got a request to create a %v named %s", petType, name)
